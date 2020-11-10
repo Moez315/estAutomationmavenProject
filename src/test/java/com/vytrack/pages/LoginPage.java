@@ -2,6 +2,7 @@ package com.vytrack.pages;
 
 //hier we can with base page class add to loginPage class
 
+import com.vytrack.utils.configurationReader;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,13 @@ public class LoginPage  extends basePage{
         Password.sendKeys(PasswordValue, Keys.ENTER);
     }
 
+    public void login(){
+        String usernameValue = configurationReader.getProperty("storemanager.username");
+        String PasswordValue = configurationReader.getProperty("password");
+
+        username.sendKeys(usernameValue);
+        Password.sendKeys(PasswordValue, Keys.ENTER);
+    }
 
 
 }
